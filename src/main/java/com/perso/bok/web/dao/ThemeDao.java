@@ -1,18 +1,19 @@
 package com.perso.bok.web.dao;
 
 import com.perso.bok.model.ContentBlock;
+import com.perso.bok.model.Theme;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public interface ContentBlockDao extends JpaRepository<ContentBlock, Integer> {
+public interface ThemeDao extends JpaRepository<Theme, Integer> {
 
-    List<ContentBlock> findAll();
+    List<Theme> findAll();
 
-    ContentBlock findById(int id);
+    Theme findById(int id);
 
-    List<ContentBlock> findByThemeId(final Integer themeId);
+    boolean existsById(Integer id);
 
 }

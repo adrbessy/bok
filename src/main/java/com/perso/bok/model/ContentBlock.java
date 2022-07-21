@@ -9,14 +9,17 @@ public class ContentBlock {
     @Id
     private int id;
 
+    private int themeId;
+
     private String title;
 
     private String content;
 
     public ContentBlock(){}
 
-    public ContentBlock(int id, String title, String content) {
+    public ContentBlock(int id, int themeId, String title, String content) {
         this.id = id;
+        this.themeId = themeId;
         this.title = title;
         this.content = content;
     }
@@ -43,5 +46,13 @@ public class ContentBlock {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public int getThemeId() {
+        return themeId;
+    }
+
+    public void setThemeId(int themeId) {
+        this.themeId = themeId;
     }
 }
