@@ -2,6 +2,7 @@ package com.perso.bok.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.util.Date;
 
 @Entity
 public class ContentBlock {
@@ -15,13 +16,16 @@ public class ContentBlock {
 
     private String content;
 
+    private Date createdDate;
+
     public ContentBlock(){}
 
-    public ContentBlock(int id, int themeId, String title, String content) {
+    public ContentBlock(int id, int themeId, String title, String content, Date createdDate) {
         this.id = id;
         this.themeId = themeId;
         this.title = title;
         this.content = content;
+        this.createdDate = createdDate;
     }
 
     public int getId() {
@@ -54,5 +58,13 @@ public class ContentBlock {
 
     public void setThemeId(int themeId) {
         this.themeId = themeId;
+    }
+
+    public Date getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
     }
 }

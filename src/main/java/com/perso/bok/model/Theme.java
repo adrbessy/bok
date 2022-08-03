@@ -2,7 +2,6 @@ package com.perso.bok.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import java.util.List;
 
 @Entity
 public class Theme {
@@ -10,14 +9,14 @@ public class Theme {
     @Id
     private int id;
 
-    private String title;
+    private String name;
 
     public Theme() {
     }
 
-    public Theme(int id, String title) {
+    public Theme(int id, String name) {
         this.id = id;
-        this.title = title;
+        this.name = name;
     }
 
     public int getId() {
@@ -28,11 +27,11 @@ public class Theme {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getName() {
+        return name;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setName(String name) {
+        this.name = name;
     }
 }

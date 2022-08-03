@@ -31,12 +31,13 @@ public class ContentBlockController {
         this.contentBlockDao = contentBlockDao;
     }
 
+    @CrossOrigin
     @GetMapping("/ContentBlocks")
     public List<ContentBlock> showAllContentBlocks() {
-        List<ContentBlock> contentBlockList = contentBlockDao.findAll();
-        return contentBlockList;
+        return contentBlockDao.findAll();
     }
 
+    @CrossOrigin
     @GetMapping("/ContentBlocks/{id}")
     public ContentBlock showContentBlock(@PathVariable int id) {
         ContentBlock contentBlock = contentBlockDao.findById(id);
@@ -44,6 +45,7 @@ public class ContentBlockController {
         return contentBlock;
     }
 
+    @CrossOrigin
     @PostMapping(value = "/ContentBlocks")
     public ResponseEntity<ContentBlock> addContentBlock(@RequestBody ContentBlock contentBlock) {
         ContentBlock contentBlockAdded = contentBlockDao.save(contentBlock);
