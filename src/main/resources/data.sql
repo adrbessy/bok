@@ -1,5 +1,0 @@
-INSERT INTO theme VALUES(1, 'Outils');
-INSERT INTO theme VALUES(2, 'Homo');
-INSERT INTO content_block VALUES(1, 1, 'Premiers outils en bois' , 'Les plus anciens outils en bois, de conservation fragile à l''instar des brindilles des chimpanzés, sont des sortes de javelots attribuées à Erectus et retrouvées à Schoningen, en Allemagne; au nombre de huit et mesurant entre 2 et 2,5 mètres en moyenne, ces armes en épicéa et en pin sont datées d''environ 300.000 ans.', current_timestamp);
-INSERT INTO content_block VALUES(2, 2, 'Homo luzonensis' , 'Dans la grotte de Callao, sur l''île Luçon dans les Philippines, quelques rares fragments d''une nouvelle espèce, "naine" également, ont été découverts à partir de 2007 par une équipe franco-philippine.', current_timestamp);
-INSERT INTO content_block VALUES(3, 2, 'Premiers peuplements de l''Amérique' , 'Il y a environ 20.000 ans, on a traversé le détroit de Béring pour peupler pour la première fois les Amériques.', current_timestamp);
