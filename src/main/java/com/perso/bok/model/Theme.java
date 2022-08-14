@@ -3,9 +3,9 @@ package com.perso.bok.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Data
@@ -14,11 +14,11 @@ import javax.persistence.*;
 public class Theme {
 
     @Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(unique = true)
-    @NotEmpty(message = "name cannot be empty or null")
+    @NotEmpty(message = "name cannot be empty")
     private String name;
 
 }

@@ -63,9 +63,11 @@ public class ContentBlockController {
 
     @CrossOrigin
     @DeleteMapping ("/ContentBlocks/{id}")
-    public void deleteContentBlock(@PathVariable int id) {
+    public ContentBlock deleteContentBlock(@PathVariable int id) {
         log.info("Delete request with the endpoint '/ContentBlocks/{id}'");
+        ContentBlock deletedContentBlock = contentBlockDao.findById(id);
         contentBlockDao.deleteById(id);
+        return deletedContentBlock;
     }
 
     @PutMapping ("/ContentBlocks")
@@ -80,6 +82,7 @@ public class ContentBlockController {
      * @param themeId The id of a theme
      * @return - A List of content blocks
      */
+    @CrossOrigin
     @GetMapping("/ContentBlocks/theme/{themeId}")
     public List<ContentBlock> getContentBlocksOfOneTheme(@PathVariable int themeId) {
         log.info("Get request with the endpoint '/ContentBlocks/theme/{themeId}'");
@@ -92,6 +95,30 @@ public class ContentBlockController {
             log.info("response following the GET on the endpoint '/ContentBlocks/theme/{themeId}'.");
             return contentBlockList;
         }
+    }
+
+    /**
+     * Replace - Replace all the content blocks
+     *
+     * @param themeId The list of the content blocks
+     */
+    @CrossOrigin
+    @DeleteMapping("/ContentBlocks/deleteByThemeId")
+    public void deleteByThemeId(@PathVariable int themeId) {
+        log.info("Post request with the endpoint '/ContentBlocks/replaceAll'");
+        contentBlockDao.deleteByThemeId(themeId);
+        log.info("request response with the endpoint '/ContentBlocks/replaceAll'");
+    }
+
+    @CrossOrigin
+    @PostMapping("/ContentBlocks/saveContentBlocks")
+    public List<ContentBlock> saveContentBlocks(@RequestBody List<ContentBlock> contentBlockList) {
+        log.info("Post request with the endpoint '/ContentBlocks/replaceAll'");
+        List<ContentBlock> contentBlocks = contentBlockDao.findByThemeId(contentBlockList.get(0).getThemeId());
+        System.out.println("contentBlocks : " + contentBlocks);
+        contentBlockDao.saveAll(contentBlockList);
+        log.info("request response with the endpoint '/ContentBlocks/replaceAll'");
+        return contentBlockList;
     }
 
 }

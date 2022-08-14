@@ -10,5 +10,6 @@ CREATE TABLE content_block
    theme_id        INT NOT NULL,
    title       VARCHAR(255) NOT NULL,
    content       LONGTEXT,
-   created_date TIMESTAMP NOT NULL
+   created_date TIMESTAMP NOT NULL,
+   sort    INT NOT NULL
 );
