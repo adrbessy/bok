@@ -98,9 +98,9 @@ public class ContentBlockController {
     }
 
     /**
-     * Replace - Replace all the content blocks
+     * Delete - Delete the content blocks by theme id
      *
-     * @param themeId The list of the content blocks
+     * @param themeId The theme id
      */
     @CrossOrigin
     @DeleteMapping("/ContentBlocks/deleteByThemeId")
@@ -110,6 +110,12 @@ public class ContentBlockController {
         log.info("request response with the endpoint '/ContentBlocks/replaceAll'");
     }
 
+    /**
+     * Save - Save all the content blocks of one theme
+     *
+     * @param contentBlockList The list to save
+     * @return - A List of content blocks
+     */
     @CrossOrigin
     @PostMapping("/ContentBlocks/saveContentBlocks")
     public List<ContentBlock> saveContentBlocks(@RequestBody List<ContentBlock> contentBlockList) {

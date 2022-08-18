@@ -24,10 +24,12 @@ public class ContentBlock {
     @NotEmpty(message = "title cannot be empty")
     private String title;
 
+    @Column(length = 3000)
     private String content;
 
     private LocalDateTime createdDate;
 
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int sort;
 
 }

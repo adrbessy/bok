@@ -9,7 +9,7 @@ CREATE TABLE content_block
    id        INT PRIMARY KEY NOT NULL,
    theme_id        INT NOT NULL,
    title       VARCHAR(255) NOT NULL,
-   content       LONGTEXT,
+   content  TEXT,
    created_date TIMESTAMP NOT NULL,
    sort    INT NOT NULL
-);
+)

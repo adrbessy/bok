@@ -28,6 +28,7 @@ public class ThemeController {
         return themeDao.findAll();
     }
 
+    @CrossOrigin
     @GetMapping("/Themes/{id}")
     public Theme showTheme(@PathVariable int id) {
         log.info("Get request with the endpoint '/Themes/{id}'");
