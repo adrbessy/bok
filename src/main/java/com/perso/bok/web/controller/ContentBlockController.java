@@ -70,10 +70,17 @@ public class ContentBlockController {
         return deletedContentBlock;
     }
 
+    @CrossOrigin
     @PutMapping ("/ContentBlocks")
     public void updateContentBlock(@RequestBody ContentBlock contentBlock)
     {
-        contentBlockDao.save(contentBlock);
+        log.info("Update request with the endpoint '/ContentBlocks'");
+        //contentBlockDao.setContentBlockById(contentBlock.getTitle(),contentBlock.getContent(),contentBlock.getId());
+        ContentBlock contentBlockFound = contentBlockDao.findById(contentBlock.getId());
+        // crush the variables of the object found
+        contentBlockFound.setTitle(contentBlock.getTitle());
+        contentBlockFound.setContent(contentBlock.getContent());
+        contentBlockDao.save(contentBlockFound);
     }
 
     /**
@@ -105,9 +112,9 @@ public class ContentBlockController {
     @CrossOrigin
     @DeleteMapping("/ContentBlocks/deleteByThemeId")
     public void deleteByThemeId(@PathVariable int themeId) {
-        log.info("Post request with the endpoint '/ContentBlocks/replaceAll'");
+        log.info("Delete request with the endpoint '/ContentBlocks/deleteByThemeId'");
         contentBlockDao.deleteByThemeId(themeId);
-        log.info("request response with the endpoint '/ContentBlocks/replaceAll'");
+        log.info("request response with the endpoint '/ContentBlocks/deleteByThemeId'");
     }
 
     /**
@@ -119,11 +126,11 @@ public class ContentBlockController {
     @CrossOrigin
     @PostMapping("/ContentBlocks/saveContentBlocks")
     public List<ContentBlock> saveContentBlocks(@RequestBody List<ContentBlock> contentBlockList) {
-        log.info("Post request with the endpoint '/ContentBlocks/replaceAll'");
+        log.info("Post request with the endpoint '/ContentBlocks/saveContentBlocks'");
         List<ContentBlock> contentBlocks = contentBlockDao.findByThemeId(contentBlockList.get(0).getThemeId());
         System.out.println("contentBlocks : " + contentBlocks);
         contentBlockDao.saveAll(contentBlockList);
-        log.info("request response with the endpoint '/ContentBlocks/replaceAll'");
+        log.info("request response with the endpoint '/ContentBlocks/saveContentBlocks'");
         return contentBlockList;
     }
 
