@@ -1,7 +1,8 @@
 CREATE TABLE theme
 (
    id        INT PRIMARY KEY NOT NULL,
-   name       VARCHAR(255) NOT NULL
+   name       VARCHAR(255) NOT NULL,
+   sort    INT NOT NULL
 );
 
 CREATE TABLE content_block

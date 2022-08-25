@@ -21,4 +21,7 @@ public class Theme {
     @NotEmpty(message = "name cannot be empty")
     private String name;
 
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int sort;
+
 }

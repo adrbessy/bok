@@ -64,5 +64,32 @@ public class ThemeController {
         themeDao.save(Theme);
     }
 
+    /**
+     * Delete - Delete the themes by id
+     *
+     * @param id The theme id
+     */
+    @CrossOrigin
+    @DeleteMapping("/Themes/deleteById")
+    public void deleteById(@PathVariable int id) {
+        log.info("Delete request with the endpoint '/Themes/deleteById'");
+        themeDao.deleteById(id);
+        log.info("request response with the endpoint '/Themes/deleteId'");
+    }
+
+    /**
+     * Save - Save all the themes
+     *
+     * @param themeList The list to save
+     * @return - A List of themes
+     */
+    @CrossOrigin
+    @PostMapping("/Themes/saveThemes")
+    public List<Theme> saveThemes(@RequestBody List<Theme> themeList) {
+        log.info("Post request with the endpoint '/Themes/saveThemes'");
+        themeDao.saveAll(themeList);
+        log.info("request response with the endpoint '/Themes/saveThemes'");
+        return themeList;
+    }
 
 }
