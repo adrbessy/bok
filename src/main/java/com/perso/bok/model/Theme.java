@@ -24,4 +24,6 @@ public class Theme {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int sort;
 
+    private int parentId;
+
 }

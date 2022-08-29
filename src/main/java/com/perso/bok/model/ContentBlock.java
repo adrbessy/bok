@@ -20,7 +20,6 @@ public class ContentBlock {
 
     private int themeId;
 
-    @Column(unique = true)
     @NotEmpty(message = "title cannot be empty")
     private String title;
 

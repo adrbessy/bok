@@ -13,7 +13,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
 import java.util.Objects;
@@ -47,7 +46,7 @@ public class ContentBlockController {
 
     @CrossOrigin
     @PostMapping("/ContentBlocks")
-    public ResponseEntity<ContentBlock> addContentBlock(@RequestBody @Valid ContentBlock contentBlock) {
+    public ResponseEntity<ContentBlock> addContentBlock(@RequestBody ContentBlock contentBlock) {
         log.info("Post request with the endpoint '/ContentBlocks'");
         ContentBlock addedContentBlock = contentBlockService.create(contentBlock);
         if (Objects.isNull(addedContentBlock)) {

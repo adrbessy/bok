@@ -53,6 +53,15 @@ public class ThemeController {
         return ResponseEntity.created(location).build();
     }
 
+    @CrossOrigin
+    @DeleteMapping (value = "/Themes")
+    public void deleteAllThemes() {
+        log.info("Delete request with the endpoint '/Themes'");
+        themeDao.deleteAll();
+        log.info("request response with the endpoint '/Themes'");
+    }
+
+    @CrossOrigin
     @DeleteMapping (value = "/Themes/{id}")
     public void deleteTheme(@PathVariable int id) {
         themeDao.deleteById(id);
@@ -64,13 +73,22 @@ public class ThemeController {
         themeDao.save(Theme);
     }
 
+    @CrossOrigin
+    @PutMapping (value = "/ThemeList")
+    public List<Theme> updateThemeList(@RequestBody List<Theme> themeList) {
+        log.info("PUT request with the endpoint '/ThemeList'");
+        themeDao.saveAll(themeList);
+        log.info("request response with the endpoint '/ThemeList'");
+        return themeList;
+    }
+
     /**
      * Delete - Delete the themes by id
      *
      * @param id The theme id
      */
     @CrossOrigin
-    @DeleteMapping("/Themes/deleteById")
+    @DeleteMapping("/Themes/deleteById/{id}")
     public void deleteById(@PathVariable int id) {
         log.info("Delete request with the endpoint '/Themes/deleteById'");
         themeDao.deleteById(id);
