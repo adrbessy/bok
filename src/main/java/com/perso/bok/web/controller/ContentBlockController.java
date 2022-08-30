@@ -29,6 +29,14 @@ public class ContentBlockController {
     private final ContentBlockService contentBlockService;
 
     @CrossOrigin
+    @DeleteMapping (value = "/ContentBlocks")
+    public void deleteAllContentBlocks() {
+        log.info("Delete request with the endpoint '/ContentBlocks'");
+        contentBlockDao.deleteAll();
+        log.info("request response with the endpoint '/ContentBlocks'");
+    }
+
+    @CrossOrigin
     @GetMapping("/ContentBlocks")
     public List<ContentBlock> showAllContentBlocks() {
         log.info("Get request with the endpoint '/ContentBlocks'");

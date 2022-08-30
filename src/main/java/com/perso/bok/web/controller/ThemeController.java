@@ -67,10 +67,20 @@ public class ThemeController {
         themeDao.deleteById(id);
     }
 
-    @PutMapping (value = "/Themes")
+    /*@PutMapping (value = "/Themes")
     public void updateTheme(@RequestBody Theme Theme)
     {
         themeDao.save(Theme);
+    }*/
+
+    @CrossOrigin
+    @PutMapping ("/Themes")
+    public Theme updateThemeName(@RequestBody Theme theme) {
+        log.info("UpdateThemeName request with the endpoint '/Themes'");
+        Theme themeFound = themeDao.findById(theme.getId());
+        themeFound.setName(theme.getName());
+        themeDao.save(themeFound);
+        return theme;
     }
 
     @CrossOrigin
