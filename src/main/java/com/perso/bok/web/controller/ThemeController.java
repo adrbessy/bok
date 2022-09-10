@@ -75,10 +75,11 @@ public class ThemeController {
 
     @CrossOrigin
     @PutMapping ("/Themes")
-    public Theme updateThemeName(@RequestBody Theme theme) {
+    public Theme updateTheme(@RequestBody Theme theme) {
         log.info("UpdateThemeName request with the endpoint '/Themes'");
         Theme themeFound = themeDao.findById(theme.getId());
         themeFound.setName(theme.getName());
+        themeFound.setShowSubthemes(theme.isShowSubthemes());
         themeDao.save(themeFound);
         return theme;
     }

@@ -26,4 +26,6 @@ public class Theme {
 
     private int parentId;
 
+    private boolean showSubthemes;
+
 }

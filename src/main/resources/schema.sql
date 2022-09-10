@@ -4,6 +4,7 @@ CREATE TABLE theme
    name       VARCHAR(255) NOT NULL,
    sort    INT NOT NULL,
    parent_id INT
+   showSubthemes boolean
 );
 
 CREATE TABLE content_block
